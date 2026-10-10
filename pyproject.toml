@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "image-data-collector"
+version = "0.1.0"
+description = "Validate images, extract metadata, detect duplicates, and create CSV reports."
+requires-python = ">=3.12"
+dependencies = [
+    "Pillow>=10.0",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+image-data-collector = "image_data_collector.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
